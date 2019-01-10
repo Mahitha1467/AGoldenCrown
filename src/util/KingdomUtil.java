@@ -2,9 +2,9 @@ package util;
 
 import model.Kingdom;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class KingdomUtil {
     private static List<Kingdom> existingKingdoms = Arrays.asList(
@@ -16,11 +16,8 @@ public class KingdomUtil {
     );
 
     public static List<String> getAllKingdomNames() {
-        List<String> kingdomNames = new ArrayList<>();
-        existingKingdoms.forEach(kingdom -> {
-            kingdomNames.add(kingdom.getName());
-        });
-
-        return kingdomNames;
+        return existingKingdoms.stream()
+                .map(Kingdom::getName)
+                .collect(Collectors.toList());
     }
 }
