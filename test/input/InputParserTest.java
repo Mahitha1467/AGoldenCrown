@@ -1,6 +1,7 @@
 package input;
 
 import exception.UnexpectedFormatException;
+import model.Input;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -117,5 +118,22 @@ public class InputParserTest {
     @Test
     public void shouldReturnTrueIfTheGivenListSizeIsEqualGreaterThan3() {
         assertTrue(parser.isInputsSufficientToDeclareRuler(Arrays.asList("first", "second", "third", "fourth")));
+    }
+
+    @Test
+    public void shouldReturnTheInputsListByRemovingQuotes() {
+        List<String> inputs = Arrays.asList("Air, some", "Water, \"owl\"");
+        List<Input> expectedFormat = Arrays.asList(
+                new Input("air", "some"),
+                new Input("water", "owl")
+        );
+
+        List<Input> parsedInputs = parser.parse(inputs);
+
+        assertEquals(expectedFormat.size(), parsedInputs.size());
+        assertEquals(expectedFormat.get(0).getKingdomName(), parsedInputs.get(0).getKingdomName());
+        assertEquals(expectedFormat.get(0).getMessage(), parsedInputs.get(0).getMessage());
+        assertEquals(expectedFormat.get(1).getKingdomName(), parsedInputs.get(1).getKingdomName());
+        assertEquals(expectedFormat.get(1).getMessage(), parsedInputs.get(1).getMessage());
     }
 }

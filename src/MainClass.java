@@ -1,5 +1,6 @@
 import input.ConsoleInput;
 import input.InputParser;
+import model.Input;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,5 +11,6 @@ public class MainClass {
         InputParser parser = new InputParser();
         ConsoleInput consoleInput = new ConsoleInput(scanner, parser);
         List<String> validInputs = consoleInput.getValidInputs();
+        List<Input> parsedInputs = parser.parse(validInputs);
     }
 }
