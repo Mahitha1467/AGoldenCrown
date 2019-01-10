@@ -13,6 +13,8 @@ public class InputParser {
     private final static String EMPTY_STRING = "";
     private final static int ZERO = 0;
     private final static int MIN_INPUT_SIZE = 3;
+    private final static int MESSAGE_INDEX = 1;
+    public static final String EMPTY_QUOTES = "\"\"";
 
     boolean isFormatValid(String input) throws UnexpectedFormatException {
         if (EMPTY_STRING.equals(input)) {
@@ -21,12 +23,15 @@ public class InputParser {
 
         String[] splitInput = input.split(INPUT_SEPARATOR);
         if (splitInput.length != WORDS_IN_INPUT) {
-            throw new UnexpectedFormatException("Input should not have only one Comma. Expected format is 'Air, \"qwert\"'");
+            throw new UnexpectedFormatException("Input should have only one Comma. Expected format is 'Air, \"qwert\"'");
         }
 
         List<String> kingdomNames = KingdomUtil.getAllKingdomNames();
         if (!kingdomNames.contains(splitInput[KINGDOM_NAME_INDEX].toLowerCase())) {
             throw new UnexpectedFormatException("Input should have only Air, Ice, Fire, Land, Water Kingdoms");
+        }
+        if(EMPTY_QUOTES.equals(splitInput[MESSAGE_INDEX].trim()) || EMPTY_STRING.equals(splitInput[MESSAGE_INDEX].trim())) {
+            throw new UnexpectedFormatException("Input should have message");
         }
 
         return true;

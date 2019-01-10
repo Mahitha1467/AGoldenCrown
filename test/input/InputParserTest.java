@@ -34,7 +34,7 @@ public class InputParserTest {
     @Test
     public void shouldThrowExceptionIfTheGivenInputMoreThanOneComma() {
         String input = "Air, asdff, wert";
-        String expectedMessage = "Input should not have only one Comma. Expected format is 'Air, \"qwert\"'";
+        String expectedMessage = "Input should have only one Comma. Expected format is 'Air, \"qwert\"'";
 
         try {
             parser.isFormatValid(input);
@@ -47,6 +47,30 @@ public class InputParserTest {
     public void shouldThrowExceptionIfTheGivenInputDoesNotHaveExpectedKingdoms() {
         String input = "Qwe, \"some\"";
         String expectedMessage = "Input should have only Air, Ice, Fire, Land, Water Kingdoms";
+
+        try {
+            parser.isFormatValid(input);
+        } catch (UnexpectedFormatException e) {
+            assertEquals(expectedMessage, e.getMessage());
+        }
+    }
+
+    @Test
+    public void shouldThrowExceptionIfTheGivenInputHaveEmptyQuotesAfterComma() {
+        String input = "Air, \"\"";
+        String expectedMessage = "Input should have message";
+
+        try {
+            parser.isFormatValid(input);
+        } catch (UnexpectedFormatException e) {
+            assertEquals(expectedMessage, e.getMessage());
+        }
+    }
+
+    @Test
+    public void shouldThrowExceptionIfTheGivenInputIsEmptyAfterComma() {
+        String input = "Air, ";
+        String expectedMessage = "Input should have message";
 
         try {
             parser.isFormatValid(input);
