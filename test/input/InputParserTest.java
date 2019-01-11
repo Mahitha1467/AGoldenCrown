@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -85,24 +84,6 @@ public class InputParserTest {
         String input = "Air, \"some\"";
         boolean isValid = parser.isFormatValid(input);
         assertTrue(isValid);
-    }
-
-    @Test
-    public void shouldReturnEmptyListIfTheGivenListIsEmpty() {
-        List<String> list = parser.removeLastIndex(Collections.EMPTY_LIST);
-
-        assertEquals(0, list.size());
-    }
-
-    @Test
-    public void shouldReturnTheSubListByRemovingLastIndex() {
-        List<String> givenList = Arrays.asList("first", "second");
-        List<String> expectedList = Collections.singletonList("first");
-
-        List<String> actualList = parser.removeLastIndex(givenList);
-
-        assertEquals(1, actualList.size());
-        assertEquals(expectedList, actualList);
     }
 
     @Test

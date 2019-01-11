@@ -19,11 +19,10 @@ public class ConsoleInput {
 
     public List<String> getValidInputs() {
         List<String> inputs = new ArrayList<>();
-        List<String> validInputs;
+        List<String> validInputs = new ArrayList<>();
         boolean isSufficient;
         do {
             getInputsFromUser(inputs);
-            validInputs = parser.removeLastIndex(inputs);
             isSufficient = parser.isInputsSufficientToDeclareRuler(validInputs);
             if (!isSufficient) {
                 System.out.println("Please provide sufficient inputs to declare ruler. Minimum size of inputs is 3");
@@ -40,7 +39,9 @@ public class ConsoleInput {
             input = scanner.nextLine();
             try {
                 parser.isFormatValid(input);
-                inputs.add(input);
+                if (!EMPTY_STRING.equals(input)) {
+                    inputs.add(input);
+                }
             } catch (UnexpectedFormatException e) {
                 System.out.println(e.getMessage());
             }

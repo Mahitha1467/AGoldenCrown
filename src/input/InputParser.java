@@ -4,7 +4,6 @@ import exception.UnexpectedFormatException;
 import model.Input;
 import util.KingdomUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,15 +36,6 @@ public class InputParser {
         }
 
         return true;
-    }
-
-    List<String> removeLastIndex(List<String> list) {
-        if (list.size() == ZERO) {
-            return new ArrayList<>();
-        }
-
-        int lastIndex = list.size() - 1;
-        return list.subList(ZERO, lastIndex);
     }
 
     boolean isInputsSufficientToDeclareRuler(List<String> validInputs) {
