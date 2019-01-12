@@ -13,15 +13,7 @@ public class Input {
         return kingdomName;
     }
 
-    public void setKingdomName(String kingdomName) {
-        this.kingdomName = kingdomName;
-    }
-
     public String getMessage() {
         return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

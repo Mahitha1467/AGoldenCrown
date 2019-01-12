@@ -13,15 +13,7 @@ public class Kingdom {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmblem() {
         return emblem;
-    }
-
-    public void setEmblem(String emblem) {
-        this.emblem = emblem;
     }
 }
