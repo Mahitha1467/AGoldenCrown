@@ -16,3 +16,16 @@ Input: Ice, “zmzmzmzaztzozh”
 Who is the ruler of Southeros? Output: King Shan
 Allies of Ruler?
 Output: Air, Land, Ice
+
+Software Dependencies: Java8
+Test dependencies:
+How to add Libraries in Intellij : https://www.jetbrains.com/help/idea/library.html
+Download dependencies from maven:
+powermock-api-mockito-1.6.5
+powermock-module-junit4-1.6.5
+
+or required jars can be found in lib folder
+
+
+How to run application;
+Run the main method which is in src/MainClass.java
