@@ -19,23 +19,23 @@ public class ConsoleInput {
 
     public List<String> getValidInputs() {
         List<String> inputs = new ArrayList<>();
-        List<String> validInputs = new ArrayList<>();
         boolean isSufficient;
+        System.out.println("Input messages to kingdoms from King Shan. Click on only Enter when you want stop giving input.");
+
         do {
             getInputsFromUser(inputs);
-            isSufficient = parser.isInputsSufficientToDeclareRuler(validInputs);
+            isSufficient = parser.isInputsSufficientToDeclareRuler(inputs);
             if (!isSufficient) {
                 System.out.println("Please provide sufficient inputs to declare ruler. Minimum size of inputs is 3");
             }
         } while(!isSufficient);
 
-        return validInputs;
+        return inputs;
     }
 
     private void getInputsFromUser(List<String> inputs) {
         String input;
         do {
-            System.out.println("Input messages to kingdoms from King Shan. Click on only Enter when you want stop giving input.");
             input = scanner.nextLine();
             try {
                 parser.isFormatValid(input);
