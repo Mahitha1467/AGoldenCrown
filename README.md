@@ -26,6 +26,7 @@ powermock-module-junit4-1.6.5
 
 or required jars can be found in lib folder
 
+IDE support:  IntelliJ IDEA
 
 How to run application;
 Run the main method which is in src/MainClass.java
