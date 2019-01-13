@@ -35,7 +35,7 @@ public class ConsoleInput {
     private void getInputsFromUser(List<String> inputs) {
         String input;
         do {
-            System.out.println("Enter input. Click on only Enter when you want stop giving input.");
+            System.out.println("Input messages to kingdoms from King Shan. Click on only Enter when you want stop giving input.");
             input = scanner.nextLine();
             try {
                 parser.isFormatValid(input);

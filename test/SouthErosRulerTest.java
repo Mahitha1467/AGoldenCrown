@@ -94,7 +94,7 @@ public class SouthErosRulerTest {
         verifyStatic(times(1));
         KingdomUtil.getKingdomEmblems(Arrays.asList("air", "land", "ice"));
 
-        assertEquals("King Shah", rulerWithAllies.getName());
+        assertEquals("King Shan", rulerWithAllies.getName());
         assertEquals(Arrays.asList("air", "land", "ice"), rulerWithAllies.getAllies());
     }
 
@@ -156,7 +156,7 @@ public class SouthErosRulerTest {
 
         Ruler rulerWithAllies = southErosRuler.getRulerWithAllies(givenInputs);
 
-        assertEquals("King Shah", rulerWithAllies.getName());
+        assertEquals("King Shan", rulerWithAllies.getName());
         assertEquals(Arrays.asList("air", "land", "ice", "fire"), rulerWithAllies.getAllies());
     }
 

@@ -21,7 +21,7 @@ public class SouthErosRuler {
         List<String> allies = checkForAllies(inputs, kingdomsWithEmblemFrequencies);
 
         if (allies.size() >= 3) {
-            return new Ruler("King Shah", allies);
+            return new Ruler("King Shan", allies);
         }
         return new Ruler();
     }
